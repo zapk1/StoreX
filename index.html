@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+<html data-filename="components/AdminPanel" data-linenumber="10" data-visual-selector-id="components/AdminPanel10" lang="en">
+<head data-filename="components/AdminPanel" data-linenumber="11" data-visual-selector-id="components/AdminPanel11">
+    <meta data-filename="components/AdminPanel" data-linenumber="12" data-visual-selector-id="components/AdminPanel12" charset="UTF-8">
+    <meta data-filename="components/AdminPanel" data-linenumber="13" data-visual-selector-id="components/AdminPanel13" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-filename="components/AdminPanel" data-linenumber="14" data-visual-selector-id="components/AdminPanel14">StoreX - Complete Offline Version</title>
+    <script data-filename="components/AdminPanel" data-linenumber="15" data-visual-selector-id="components/AdminPanel15" src="https://cdn.tailwindcss.com"></script>
+    <style data-filename="components/AdminPanel" data-linenumber="16" data-visual-selector-id="components/AdminPanel16">
+        .modal-bg { 
+            background-color: rgba(0,0,0,0.5); 
+        }
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9CA3AF;
+        }
+    </style>
+</head>
+<body data-filename="components/AdminPanel" data-linenumber="29" data-visual-selector-id="components/AdminPanel29" class="bg-gray-50 min-h-screen">
+
+    <!-- Header -->
+    <header data-filename="components/AdminPanel" data-linenumber="32" data-visual-selector-id="components/AdminPanel32" class="bg-white border-b border-gray-100 px-6 py-4">
+        <div data-filename="components/AdminPanel" data-linenumber="33" data-visual-selector-id="components/AdminPanel33" class="max-w-7xl mx-auto flex items-center justify-between">
+            <div data-filename="components/AdminPanel" data-linenumber="34" data-visual-selector-id="components/AdminPanel34" class="flex items-center gap-3">
+                <div data-filename="components/AdminPanel" data-linenumber="35" data-visual-selector-id="components/AdminPanel35" class="w-10 h-10 bg-black rounded-xl flex items-center justify-center">
+                    <span data-filename="components/AdminPanel" data-linenumber="36" data-visual-selector-id="components/AdminPanel36" class="text-white font-bold">SX</span>
+                </div>
+                <h1 data-filename="components/AdminPanel" data-linenumber="38" data-visual-selector-id="components/AdminPanel38" class="text-2xl font-light text-black">StoreX</h1>
+            </div>
+            <button data-filename="components/AdminPanel" data-linenumber="40" data-visual-selector-id="components/AdminPanel40" id="add-contact-btn" class="bg-black hover:bg-gray-800 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors">
+                <svg data-filename="components/AdminPanel" data-linenumber="41" data-visual-selector-id="components/AdminPanel41" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line data-filename="components/AdminPanel" data-linenumber="42" data-visual-selector-id="components/AdminPanel42" x1="12" y1="5" x2="12" y2="19"/>
+                    <line data-filename="components/AdminPanel" data-linenumber="43" data-visual-selector-id="components/AdminPanel43" x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+           
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main data-filename="components/AdminPanel" data-linenumber="51" data-visual-selector-id="components/AdminPanel51" class="max-w-7xl mx-auto px-6 py-8">
+        <div data-filename="components/AdminPanel" data-linenumber="52" data-visual-selector-id="components/AdminPanel52" class="space-y-8">
+            <!-- Header Section -->
+            <div data-filename="components/AdminPanel" data-linenumber="54" data-visual-selector-id="components/AdminPanel54" class="text-center space-y-6">
+                <div data-filename="components/AdminPanel" data-linenumber="55" data-visual-selector-id="components/AdminPanel55" class="flex items-center justify-center gap-3">
+                    <div data-filename="components/AdminPanel" data-linenumber="56" data-visual-selector-id="components/AdminPanel56" class="w-12 h-12 bg-black rounded-2xl flex items-center justify-center">
+                        <svg data-filename="components/AdminPanel" data-linenumber="57" data-visual-selector-id="components/AdminPanel57" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                            <path data-filename="components/AdminPanel" data-linenumber="58" data-visual-selector-id="components/AdminPanel58" d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle data-filename="components/AdminPanel" data-linenumber="59" data-visual-selector-id="components/AdminPanel59" cx="9" cy="7" r="4"/>
+                            <path data-filename="components/AdminPanel" data-linenumber="60" data-visual-selector-id="components/AdminPanel60" d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path data-filename="components/AdminPanel" data-linenumber="61" data-visual-selector-id="components/AdminPanel61" d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h1 data-filename="components/AdminPanel" data-linenumber="64" data-visual-selector-id="components/AdminPanel64" class="text-4xl font-light text-black">Contact Storage</h1>
+                </div>
+                <p data-filename="components/AdminPanel" data-linenumber="66" data-visual-selector-id="components/AdminPanel66" class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Securely store and manage your important contacts with photos, numbers, and emails
+                </p>
+            </div>
+
+            <!-- Search and Add Section -->
+            <div data-filename="components/AdminPanel" data-linenumber="72" data-visual-selector-id="components/AdminPanel72" class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div data-filename="components/AdminPanel" data-linenumber="73" data-visual-selector-id="components/AdminPanel73" class="relative w-full max-w-2xl">
+                    <svg data-filename="components/AdminPanel" data-linenumber="74" data-visual-selector-id="components/AdminPanel74" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+                        <circle data-filename="components/AdminPanel" data-linenumber="75" data-visual-selector-id="components/AdminPanel75" cx="11" cy="11" r="8"/>
+                        <path data-filename="components/AdminPanel" data-linenumber="76" data-visual-selector-id="components/AdminPanel76" d="m21 21-4.3-4.3"/>
+                    </svg>
+                    <input data-filename="components/AdminPanel" data-linenumber="78" data-visual-selector-id="components/AdminPanel78" 
+                        type="text" 
+                        id="search-bar" 
+                        placeholder="Search contacts by name, email, phone, or notes..." 
+                        class="w-full pl-12 pr-4 py-3 text-lg border-gray-200 focus:border-black focus:ring-0 bg-gray-50 focus:bg-white transition-all duration-200 rounded-lg"
+                    />
+                </div>
+                
+                <button data-filename="components/AdminPanel" data-linenumber="86" data-visual-selector-id="components/AdminPanel86" id="add-contact-btn-2" class="bg-black hover:bg-gray-800 text-white px-6 py-3 gap-2 rounded-lg flex items-center whitespace-nowrap">
+                    <svg data-filename="components/AdminPanel" data-linenumber="87" data-visual-selector-id="components/AdminPanel87" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line data-filename="components/AdminPanel" data-linenumber="88" data-visual-selector-id="components/AdminPanel88" x1="12" y1="5" x2="12" y2="19"/>
+                        <line data-filename="components/AdminPanel" data-linenumber="89" data-visual-selector-id="components/AdminPanel89" x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                    Add Contact
+                </button>
+            </div>
+
+            <!-- Status Bar -->
+            <div data-filename="components/AdminPanel" data-linenumber="96" data-visual-selector-id="components/AdminPanel96" class="flex items-center justify-between">
+                <h2 data-filename="components/AdminPanel" data-linenumber="97" data-visual-selector-id="components/AdminPanel97" id="results-title" class="text-xl font-medium text-gray-900">
+                    All Contacts (<span data-filename="components/AdminPanel" data-linenumber="98" data-visual-selector-id="components/AdminPanel98" id="contact-count">0</span>)
+                </h2>
+                <div data-filename="components/AdminPanel" data-linenumber="100" data-visual-selector-id="components/AdminPanel100" class="text-sm text-gray-500">
+                    Data saved locally in your browser
+                </div>
+            </div>
+
+            <!-- Contacts Grid -->
+            <div data-filename="components/AdminPanel" data-linenumber="106" data-visual-selector-id="components/AdminPanel106" id="contacts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Contacts will be inserted here -->
+            </div>
+
+            <!-- Empty State -->
+            <div data-filename="components/AdminPanel" data-linenumber="111" data-visual-selector-id="components/AdminPanel111" id="empty-state" class="hidden text-center py-16">
+                <div data-filename="components/AdminPanel" data-linenumber="112" data-visual-selector-id="components/AdminPanel112" class="w-16 h-16 bg-gray-100 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                    <svg data-filename="components/AdminPanel" data-linenumber="113" data-visual-selector-id="components/AdminPanel113" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400">
+                        <path data-filename="components/AdminPanel" data-linenumber="114" data-visual-selector-id="components/AdminPanel114" d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                        <circle data-filename="components/AdminPanel" data-linenumber="115" data-visual-selector-id="components/AdminPanel115" cx="9" cy="7" r="4"/>
+                        <path data-filename="components/AdminPanel" data-linenumber="116" data-visual-selector-id="components/AdminPanel116" d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path data-filename="components/AdminPanel" data-linenumber="117" data-visual-selector-id="components/AdminPanel117" d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <h3 data-filename="components/AdminPanel" data-linenumber="120" data-visual-selector-id="components/AdminPanel120" class="text-xl font-medium text-gray-900 mb-2">No contacts yet</h3>
+                <p data-filename="components/AdminPanel" data-linenumber="121" data-visual-selector-id="components/AdminPanel121" class="text-gray-500 mb-6">Start building your contact database by adding your first contact.</p>
+                <button data-filename="components/AdminPanel" data-linenumber="122" data-visual-selector-id="components/AdminPanel122" onclick="showAddForm()" class="bg-black hover:bg-gray-800 text-white px-6 py-3 gap-2 rounded-lg inline-flex items-center">
+                    <svg data-filename="components/AdminPanel" data-linenumber="123" data-visual-selector-id="components/AdminPanel123" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line data-filename="components/AdminPanel" data-linenumber="124" data-visual-selector-id="components/AdminPanel124" x1="12" y1="5" x2="12" y2="19"/>
+                        <line data-filename="components/AdminPanel" data-linenumber="125" data-visual-selector-id="components/AdminPanel125" x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                    Add Your First Contact
+                </button>
+            </div>
+
+            <!-- No Results State -->
+            <div data-filename="components/AdminPanel" data-linenumber="132" data-visual-selector-id="components/AdminPanel132" id="no-results" class="hidden text-center py-16">
+                <div data-filename="components/AdminPanel" data-linenumber="133" data-visual-selector-id="components/AdminPanel133" class="w-16 h-16 bg-gray-100 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                    <svg data-filename="components/AdminPanel" data-linenumber="134" data-visual-selector-id="components/AdminPanel134" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400">
+                        <circle data-filename="components/AdminPanel" data-linenumber="135" data-visual-selector-id="components/AdminPanel135" cx="11" cy="11" r="8"/>
+                        <path data-filename="components/AdminPanel" data-linenumber="136" data-visual-selector-id="components/AdminPanel136" d="m21 21-4.3-4.3"/>
+                    </svg>
+                </div>
+                <h3 data-filename="components/AdminPanel" data-linenumber="139" data-visual-selector-id="components/AdminPanel139" class="text-xl font-medium text-gray-900 mb-2">No contacts found</h3>
+                <p data-filename="components/AdminPanel" data-linenumber="140" data-visual-selector-id="components/AdminPanel140" class="text-gray-500" id="no-results-text">No contacts match your search.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Contact Form Modal -->
+    <div data-filename="components/AdminPanel" data-linenumber="146" data-visual-selector-id="components/AdminPanel146" id="form-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-bg">
+        <div data-filename="components/AdminPanel" data-linenumber="147" data-visual-selector-id="components/AdminPanel147" class="bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div data-filename="components/AdminPanel" data-linenumber="148" data-visual-selector-id="components/AdminPanel148" class="p-6 border-b border-gray-200 flex justify-between items-center">
+                <h2 data-filename="components/AdminPanel" data-linenumber="149" data-visual-selector-id="components/AdminPanel149" id="form-title" class="text-2xl font-light text-gray-900">Add New Contact</h2>
+                <button data-filename="components/AdminPanel" data-linenumber="150" data-visual-selector-id="components/AdminPanel150" id="close-modal" class="text-gray-400 hover:text-black transition-colors">
+                    <svg data-filename="components/AdminPanel" data-linenumber="151" data-visual-selector-id="components/AdminPanel151" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line data-filename="components/AdminPanel" data-linenumber="152" data-visual-selector-id="components/AdminPanel152" x1="18" y1="6" x2="6" y2="18"/>
+                        <line data-filename="components/AdminPanel" data-linenumber="153" data-visual-selector-id="components/AdminPanel153" x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <form data-filename="components/AdminPanel" data-linenumber="158" data-visual-selector-id="components/AdminPanel158" id="contact-form" class="p-6 space-y-6">
+                <input data-filename="components/AdminPanel" data-linenumber="159" data-visual-selector-id="components/AdminPanel159" type="hidden" id="contact-id" />
+                
+                <!-- Profile Image Upload -->
+                <div data-filename="components/AdminPanel" data-linenumber="162" data-visual-selector-id="components/AdminPanel162" class="flex flex-col items-center gap-4">
+                    <img data-filename="components/AdminPanel" data-linenumber="163" data-visual-selector-id="components/AdminPanel163" id="profile-preview" src="" class="w-24 h-24 rounded-2xl object-cover border-2 border-gray-100 hidden" />
+                    <div data-filename="components/AdminPanel" data-linenumber="164" data-visual-selector-id="components/AdminPanel164" id="profile-placeholder" class="w-24 h-24 bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <svg data-filename="components/AdminPanel" data-linenumber="165" data-visual-selector-id="components/AdminPanel165" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400">
+                            <path data-filename="components/AdminPanel" data-linenumber="166" data-visual-selector-id="components/AdminPanel166" d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                            <circle data-filename="components/AdminPanel" data-linenumber="167" data-visual-selector-id="components/AdminPanel167" cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    
+                    <label data-filename="components/AdminPanel" data-linenumber="171" data-visual-selector-id="components/AdminPanel171" class="cursor-pointer text-sm text-blue-600 hover:underline">
+                        <input data-filename="components/AdminPanel" data-linenumber="172" data-visual-selector-id="components/AdminPanel172" type="file" id="image-upload" accept="image/*" class="hidden" />
+                        Upload Photo
+                    </label>
+                </div>
+
+                <!-- Form Fields -->
+                <div data-filename="components/AdminPanel" data-linenumber="178" data-visual-selector-id="components/AdminPanel178" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div data-filename="components/AdminPanel" data-linenumber="179" data-visual-selector-id="components/AdminPanel179" class="space-y-2">
+                        <label data-filename="components/AdminPanel" data-linenumber="180" data-visual-selector-id="components/AdminPanel180" for="contact-name" class="text-sm font-medium text-gray-700">Full Name *</label>
+                        <input
+                            type="text"
+                            id="contact-name"
+                            required
+                            placeholder="Enter full name"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:border-black focus:ring-0 transition-colors"
+                        />
+                    </div>
+
+                    <div data-filename="components/AdminPanel" data-linenumber="190" data-visual-selector-id="components/AdminPanel190" class="space-y-2">
+                        <label data-filename="components/AdminPanel" data-linenumber="191" data-visual-selector-id="components/AdminPanel191" for="contact-phone" class="text-sm font-medium text-gray-700">Phone Number</label>
+                        <input
+                            type="text"
+                            id="contact-phone"
+                            placeholder="Enter phone number"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:border-black focus:ring-0 transition-colors"
+                        />
+                    </div>
+
+                    <div data-filename="components/AdminPanel" data-linenumber="200" data-visual-selector-id="components/AdminPanel200" class="space-y-2 md:col-span-2">
+                        <label data-filename="components/AdminPanel" data-linenumber="201" data-visual-selector-id="components/AdminPanel201" for="contact-email" class="text-sm font-medium text-gray-700">Email Address</label>
+                        <input
+                            type="email"
+                            id="contact-email"
+                            placeholder="Enter email address"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:border-black focus:ring-0 transition-colors"
+                        />
+                    </div>
+
+                    <div data-filename="components/AdminPanel" data-linenumber="210" data-visual-selector-id="components/AdminPanel210" class="space-y-2 md:col-span-2">
+                        <label data-filename="components/AdminPanel" data-linenumber="211" data-visual-selector-id="components/AdminPanel211" for="contact-notes" class="text-sm font-medium text-gray-700">Notes</label>
+                        <textarea
+                            id="contact-notes"
+                            rows="3"
+                            placeholder="Additional notes about this contact..."
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:border-black focus:ring-0 transition-colors"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <!-- Submit Buttons -->
+                <div data-filename="components/AdminPanel" data-linenumber="222" data-visual-selector-id="components/AdminPanel222" class="flex justify-end gap-3 pt-4 border-t border-gray-200">
+                    <button
+                        type="button"
+                        id="cancel-btn"
+                        class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        type="submit"
+                        class="px-6 py-3 bg-black hover:bg-gray-800 text-white rounded-lg transition-colors flex items-center gap-2"
+                    >
+                        <svg data-filename="components/AdminPanel" data-linenumber="234" data-visual-selector-id="components/AdminPanel234" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline data-filename="components/AdminPanel" data-linenumber="235" data-visual-selector-id="components/AdminPanel235" points="9 11 12 14 22 4"/>
+                            <path data-filename="components/AdminPanel" data-linenumber="236" data-visual-selector-id="components/AdminPanel236" d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                        </svg>
+                        Save Contact
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer data-filename="components/AdminPanel" data-linenumber="246" data-visual-selector-id="components/AdminPanel246" class="border-t border-gray-100 px-6 py-4 mt-12">
+        <div data-filename="components/AdminPanel" data-linenumber="247" data-visual-selector-id="components/AdminPanel247" class="max-w-7xl mx-auto text-center text-sm text-gray-500">
+            StoreX - Secure Contact Management System • Data stored locally in your browser
+        </div>
+    </footer>
+
+    <script data-filename="components/AdminPanel" data-linenumber="252" data-visual-selector-id="components/AdminPanel252">
+        // Global variables
+        let contacts = [];
+        let filteredContacts = [];
+        let currentEditId = null;
+        let currentImageData = null;
+
+        // DOM elements
+        const contactsGrid = document.getElementById('contacts-grid');
+        const searchBar = document.getElementById('search-bar');
+        const formModal = document.getElementById('form-modal');
+        const contactForm = document.getElementById('contact-form');
+        const emptyState = document.getElementById('empty-state');
+        const noResults = document.getElementById('no-results');
+        const contactCount = document.getElementById('contact-count');
+        const resultsTitle = document.getElementById('results-title');
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load initial contacts
+            const initialContacts = [{"name":"John Anderson","phone":"+1 (555) 123-4567","email":"john.anderson@email.com","profile_image":null,"notes":"Business partner - Marketing","id":"68d2fb72024f622b51e95687","created_date":"2025-09-23T19:56:34.054000","updated_date":"2025-09-23T19:56:34.054000","created_by_id":"68d2fb1885788a4ad43adcf4","created_by":"josinajoy31@gmail.com","is_sample":false},{"name":"Sarah Mitchell","phone":"+1 (555) 987-6543","email":"sarah.mitchell@company.com","profile_image":null,"notes":"Project manager - Q1 deliverables","id":"68d2fb72024f622b51e95688","created_date":"2025-09-23T19:56:34.054000","updated_date":"2025-09-23T19:56:34.054000","created_by_id":"68d2fb1885788a4ad43adcf4","created_by":"josinajoy31@gmail.com","is_sample":false},{"name":"Michael Chen","phone":"+1 (555) 456-7890","email":"m.chen@tech.com","profile_image":null,"notes":"Developer - Backend systems","id":"68d2fb72024f622b51e95689","created_date":"2025-09-23T19:56:34.054000","updated_date":"2025-09-23T19:56:34.054000","created_by_id":"68d2fb1885788a4ad43adcf4","created_by":"josinajoy31@gmail.com","is_sample":false}];
+            contacts = JSON.parse(localStorage.getItem('storex_contacts_pro')) || initialContacts;
+            
+            // Bind event listeners
+            bindEventListeners();
+            
+            // Initial render
+            renderContacts();
+        });
+
+        // Event listeners
+        function bindEventListeners() {
+            // Add contact buttons
+            document.getElementById('add-contact-btn').addEventListener('click', showAddForm);
+            document.getElementById('add-contact-btn-2').addEventListener('click', showAddForm);
+            
+            // Search functionality
+            searchBar.addEventListener('input', handleSearch);
+            
+            // Modal controls
+            document.getElementById('close-modal').addEventListener('click', hideModal);
+            document.getElementById('cancel-btn').addEventListener('click', hideModal);
+            
+            // Form submission
+            contactForm.addEventListener('submit', handleFormSubmit);
+            
+            // Image upload
+            document.getElementById('image-upload').addEventListener('change', handleImageUpload);
+            
+            // Click outside modal to close
+            formModal.addEventListener('click', function(e) {
+                if (e.target === formModal) hideModal();
+            });
+        }
+
+        // Save contacts to localStorage
+        function saveContacts() {
+            localStorage.setItem('storex_contacts_pro', JSON.stringify(contacts));
+        }
+
+        // Render all contacts
+        function renderContacts() {
+            const searchTerm = searchBar.value.toLowerCase().trim();
+            
+            // Filter contacts based on search
+            if (searchTerm) {
+                filteredContacts = contacts.filter(contact => 
+                    contact.name?.toLowerCase().includes(searchTerm) ||
+                    contact.email?.toLowerCase().includes(searchTerm) ||
+                    contact.phone?.toLowerCase().includes(searchTerm) ||
+                    contact.notes?.toLowerCase().includes(searchTerm)
+                );
+            } else {
+                filteredContacts = [...contacts];
+            }
+
+            // Update UI
+            updateContactCount();
+            updateResultsTitle();
+            renderContactGrid();
+        }
+
+        // Update contact count
+        function updateContactCount() {
+            contactCount.textContent = filteredContacts.length;
+        }
+
+        // Update results title
+        function updateResultsTitle() {
+            const searchTerm = searchBar.value.toLowerCase().trim();
+            if (searchTerm) {
+                resultsTitle.innerHTML = `Search Results (<span data-filename="components/AdminPanel" data-linenumber="343" data-visual-selector-id="components/AdminPanel343" id="contact-count">${filteredContacts.length}</span>)`;
+            } else {
+                resultsTitle.innerHTML = `All Contacts (<span data-filename="components/AdminPanel" data-linenumber="345" data-visual-selector-id="components/AdminPanel345" id="contact-count">${filteredContacts.length}</span>)`;
+            }
+        }
+
+        // Render contact grid
+        function renderContactGrid() {
+            if (contacts.length === 0) {
+                contactsGrid.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                noResults.classList.add('hidden');
+                return;
+            }
+
+            if (filteredContacts.length === 0) {
+                contactsGrid.classList.add('hidden');
+                emptyState.classList.add('hidden');
+                noResults.classList.remove('hidden');
+                document.getElementById('no-results-text').textContent = 
+                    `No contacts match "${searchBar.value}". Try a different search.`;
+                return;
+            }
+
+            // Show contacts
+            contactsGrid.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+            noResults.classList.add('hidden');
+
+            contactsGrid.innerHTML = filteredContacts.map(contact => generateContactCard(contact)).join('');
+            
+            // Add event listeners to contact cards
+            addContactCardListeners();
+        }
+
+        // Generate contact card HTML
+        function generateContactCard(contact) {
+            const profileImage = contact.profile_image 
+                ? `<img data-filename="components/AdminPanel" data-linenumber="381" data-visual-selector-id="components/AdminPanel381" src="${contact.profile_image}" alt="${contact.name}" class="w-16 h-16 rounded-2xl object-cover border-2 border-gray-100" />`
+                : `<div data-filename="components/AdminPanel" data-linenumber="382" data-visual-selector-id="components/AdminPanel382" class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center">
+                     <svg data-filename="components/AdminPanel" data-linenumber="383" data-visual-selector-id="components/AdminPanel383" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400">
+                       <path data-filename="components/AdminPanel" data-linenumber="384" data-visual-selector-id="components/AdminPanel384" d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                       <circle data-filename="components/AdminPanel" data-linenumber="385" data-visual-selector-id="components/AdminPanel385" cx="12" cy="7" r="4"/>
+                     </svg>
+                   </div>`;
+
+            const phoneInfo = contact.phone 
+                ? `<div data-filename="components/AdminPanel" data-linenumber="390" data-visual-selector-id="components/AdminPanel390" class="flex items-center gap-3 text-gray-600">
+                     <svg data-filename="components/AdminPanel" data-linenumber="391" data-visual-selector-id="components/AdminPanel391" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400">
+                       <path data-filename="components/AdminPanel" data-linenumber="392" data-visual-selector-id="components/AdminPanel392" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                     </svg>
+                     <span data-filename="components/AdminPanel" data-linenumber="394" data-visual-selector-id="components/AdminPanel394">${contact.phone}</span>
+                   </div>`
+                : '';
+
+            const emailInfo = contact.email 
+                ? `<div data-filename="components/AdminPanel" data-linenumber="399" data-visual-selector-id="components/AdminPanel399" class="flex items-center gap-3 text-gray-600">
+                     <svg data-filename="components/AdminPanel" data-linenumber="400" data-visual-selector-id="components/AdminPanel400" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400">
+                       <rect data-filename="components/AdminPanel" data-linenumber="401" data-visual-selector-id="components/AdminPanel401" width="20" height="16" x="2" y="4" rx="2"/>
+                       <path data-filename="components/AdminPanel" data-linenumber="402" data-visual-selector-id="components/AdminPanel402" d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                     </svg>
+                     <span data-filename="components/AdminPanel" data-linenumber="404" data-visual-selector-id="components/AdminPanel404" class="truncate">${contact.email}</span>
+                   </div>`
+                : '';
+
+            const notesInfo = contact.notes 
+                ? `<div data-filename="components/AdminPanel" data-linenumber="409" data-visual-selector-id="components/AdminPanel409" class="mt-3">
+                     <span data-filename="components/AdminPanel" data-linenumber="410" data-visual-selector-id="components/AdminPanel410" class="text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200 rounded-full px-2 py-1">${contact.notes}</span>
+                   </div>`
+                : '';
+
+            return `
+                <div data-filename="components/AdminPanel" data-linenumber="415" data-visual-selector-id="components/AdminPanel415" class="bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div data-filename="components/AdminPanel" data-linenumber="416" data-visual-selector-id="components/AdminPanel416" class="p-6">
+                        <div data-filename="components/AdminPanel" data-linenumber="417" data-visual-selector-id="components/AdminPanel417" class="flex items-start gap-4">
+                            <div data-filename="components/AdminPanel" data-linenumber="418" data-visual-selector-id="components/AdminPanel418" class="flex-shrink-0">${profileImage}</div>
+                            <div data-filename="components/AdminPanel" data-linenumber="419" data-visual-selector-id="components/AdminPanel419" class="flex-1 min-w-0">
+                                <div data-filename="components/AdminPanel" data-linenumber="420" data-visual-selector-id="components/AdminPanel420" class="flex items-center justify-between mb-3">
+                                    <h3 data-filename="components/AdminPanel" data-linenumber="421" data-visual-selector-id="components/AdminPanel421" class="text-xl font-semibold text-black truncate">${contact.name}</h3>
+                                    <div data-filename="components/AdminPanel" data-linenumber="422" data-visual-selector-id="components/AdminPanel422" class="flex gap-1">
+                                        <button data-filename="components/AdminPanel" data-linenumber="423" data-visual-selector-id="components/AdminPanel423" onclick="editContact('${contact.id}')" class="p-2 text-gray-400 hover:text-black hover:bg-gray-100 rounded transition-colors" title="Edit contact">
+                                            <svg data-filename="components/AdminPanel" data-linenumber="424" data-visual-selector-id="components/AdminPanel424" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path data-filename="components/AdminPanel" data-linenumber="425" data-visual-selector-id="components/AdminPanel425" d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                                <path data-filename="components/AdminPanel" data-linenumber="426" data-visual-selector-id="components/AdminPanel426" d="m15 5 4 4"/>
+                                            </svg>
+                                        </button>
+                                        <button data-filename="components/AdminPanel" data-linenumber="429" data-visual-selector-id="components/AdminPanel429" onclick="deleteContact('${contact.id}')" class="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded transition-colors" title="Delete contact">
+                                            <svg data-filename="components/AdminPanel" data-linenumber="430" data-visual-selector-id="components/AdminPanel430" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path data-filename="components/AdminPanel" data-linenumber="431" data-visual-selector-id="components/AdminPanel431" d="M3 6h18"/>
+                                                <path data-filename="components/AdminPanel" data-linenumber="432" data-visual-selector-id="components/AdminPanel432" d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/>
+                                                <path data-filename="components/AdminPanel" data-linenumber="433" data-visual-selector-id="components/AdminPanel433" d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div data-filename="components/AdminPanel" data-linenumber="438" data-visual-selector-id="components/AdminPanel438" class="space-y-2">
+                                    ${phoneInfo}
+                                    ${emailInfo}
+                                </div>
+                                ${notesInfo}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Add event listeners to contact cards
+        function addContactCardListeners() {
+            // Event listeners are already bound via onclick attributes in the HTML
+        }
+
+        // Handle search
+        function handleSearch() {
+            renderContacts();
+        }
+
+        // Show add contact form
+        function showAddForm() {
+            currentEditId = null;
+            currentImageData = null;
+            
+            document.getElementById('form-title').textContent = 'Add New Contact';
+            document.getElementById('contact-id').value = '';
+            document.getElementById('contact-name').value = '';
+            document.getElementById('contact-phone').value = '';
+            document.getElementById('contact-email').value = '';
+            document.getElementById('contact-notes').value = '';
+            
+            // Reset image preview
+            document.getElementById('profile-preview').classList.add('hidden');
+            document.getElementById('profile-placeholder').classList.remove('hidden');
+            
+            formModal.classList.remove('hidden');
+            document.getElementById('contact-name').focus();
+        }
+
+        // Edit contact
+        function editContact(id) {
+            const contact = contacts.find(c => c.id === id);
+            if (!contact) return;
+            
+            currentEditId = id;
+            currentImageData = contact.profile_image || null;
+            
+            document.getElementById('form-title').textContent = 'Edit Contact';
+            document.getElementById('contact-id').value = id;
+            document.getElementById('contact-name').value = contact.name || '';
+            document.getElementById('contact-phone').value = contact.phone || '';
+            document.getElementById('contact-email').value = contact.email || '';
+            document.getElementById('contact-notes').value = contact.notes || '';
+            
+            // Set image preview
+            if (contact.profile_image) {
+                document.getElementById('profile-preview').src = contact.profile_image;
+                document.getElementById('profile-preview').classList.remove('hidden');
+                document.getElementById('profile-placeholder').classList.add('hidden');
+            } else {
+                document.getElementById('profile-preview').classList.add('hidden');
+                document.getElementById('profile-placeholder').classList.remove('hidden');
+            }
+            
+            formModal.classList.remove('hidden');
+            document.getElementById('contact-name').focus();
+        }
+
+        // Delete contact
+        function deleteContact(id) {
+            const contact = contacts.find(c => c.id === id);
+            if (!contact) return;
+            
+            if (confirm(`Are you sure you want to delete "${contact.name}"? This action cannot be undone.`)) {
+                contacts = contacts.filter(c => c.id !== id);
+                saveContacts();
+                renderContacts();
+            }
+        }
+
+        // Hide modal
+        function hideModal() {
+            formModal.classList.add('hidden');
+            currentEditId = null;
+            currentImageData = null;
+        }
+
+        // Handle form submission
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('contact-name').value.trim();
+            const phone = document.getElementById('contact-phone').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const notes = document.getElementById('contact-notes').value.trim();
+            
+            if (!name) {
+                alert('Please enter a name for the contact.');
+                return;
+            }
+            
+            const contactData = {
+                name,
+                phone,
+                email,
+                notes,
+                profile_image: currentImageData
+            };
+            
+            if (currentEditId) {
+                // Update existing contact
+                contacts = contacts.map(c => c.id === currentEditId ? { ...c, ...contactData } : c);
+            } else {
+                // Add new contact
+                contactData.id = Date.now().toString();
+                contacts.push(contactData);
+            }
+            
+            saveContacts();
+            renderContacts();
+            hideModal();
+        }
+
+        // Handle image upload
+        function handleImageUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            // Check file size (limit to 2MB)
+            if (file.size > 2 * 1024 * 1024) {
+                alert('Please choose an image smaller than 2MB.');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                currentImageData = event.target.result;
+                document.getElementById('profile-preview').src = currentImageData;
+                document.getElementById('profile-preview').classList.remove('hidden');
+                document.getElementById('profile-placeholder').classList.add('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Escape to close modal
+            if (e.key === 'Escape' && !formModal.classList.contains('hidden')) {
+                hideModal();
+            }
+            
+            // Ctrl/Cmd + K to focus search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                searchBar.focus();
+            }
+        });
+    </script>
+</body>
+</html>
